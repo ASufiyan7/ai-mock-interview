@@ -3,7 +3,7 @@ import Header from "@/components/header";
 import {Container} from "@/components/container";
 import Footer from "@/components/footer";
 
-export function PublicLayout() {
+export const MainLayout = () => {
   return (
     <div className="h-screen flex flex-col">
       <Header />
