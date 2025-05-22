@@ -1,10 +1,16 @@
-const HomePage = () => {
+// src/pages/Home.tsx
+import { Link } from 'react-router-dom';
+
+export default function Home() {
   return (
-    <div>
-      <h1 className="text-3xl font-bold mb-4">Welcome to the Home Page</h1>
-      <p className="text-muted-foreground">You're successfully authenticated!</p>
+    <div className="flex flex-col items-center justify-center h-screen">
+      <h1>Welcome to AI Mock Interview</h1>
+      <div className="mt-4">
+        <Link to="/signin" className="mr-4">
+          Sign In
+        </Link>
+        <Link to="/signup">Sign Up</Link> 
+      </div>
     </div>
   );
-};
-
-export default HomePage;
+}

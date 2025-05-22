@@ -4,10 +4,10 @@ export const SignInPage = () => {
   return (
     <SignIn
       routing="path"
-      path="/signin"
+      path="/signin" // This path corresponds to the <Route path="/signin/*"> in App.tsx
       signUpUrl="/signup"
-      fallbackRedirectUrl="/home"
-      forceRedirectUrl="/home"
+      fallbackRedirectUrl="/dashboard" // Redirect to dashboard after sign-in
+      forceRedirectUrl="/dashboard"   // Force redirect to dashboard after sign-in
     />
   );
 };

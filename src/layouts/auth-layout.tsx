@@ -1,11 +1,16 @@
 import { Outlet } from "react-router-dom";
 
-export default function AuthenticationLayout() {
+const AuthenticationLayout = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="w-full max-w-md p-6 bg-white rounded shadow">
-        <Outlet />
-      </div>
+    <div className="w-screen h-screen overflow-hidden flex items-center justify-center relative">
+      <img
+        src="/assets/img/bg.png"
+        className="absolute w-full h-full object-cover opacity-20"
+        alt=""
+      />
+      <Outlet />
     </div>
   );
-}
+};
+
+export default AuthenticationLayout;
