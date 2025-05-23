@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Header from "@/components/header";
-import Footer from "@/components/footer";
 import AuthHandler from "@/handlers/auth-handlers";
+import { Footer } from "@/components/footer";
 // import { useAuth } from "@clerk/clerk-react"; // No longer needed here
 // import { Navigate } from "react-router-dom"; // No longer needed here
 
