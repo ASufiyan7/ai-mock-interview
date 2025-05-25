@@ -1,20 +1,18 @@
-import { Outlet } from "react-router-dom";
-import Header from "@/components/header";
-import AuthHandler from "@/handlers/auth-handlers";
 import { Footer } from "@/components/footer";
-// import { useAuth } from "@clerk/clerk-react"; // No longer needed here
-// import { Navigate } from "react-router-dom"; // No longer needed here
+import Header from "@/components/header";
+import AuthHandler from "@/handlers/auth-handler";
+import { Outlet } from "react-router-dom";
 
-export function PublicLayout() {
-  // const { isSignedIn } = useAuth(); // Removed
-  // if (isSignedIn) return <Navigate to="/dashboard" replace />; // Example: If you want to redirect signed-in users from public page
-
+export const PublicLayout = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="w-full">
+      {/* handler to store the user data */}
       <AuthHandler />
       <Header />
-        <Outlet />
+
+      <Outlet />
+
       <Footer />
     </div>
   );
-}
+};

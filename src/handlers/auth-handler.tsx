@@ -26,9 +26,9 @@ const AuthHanlder = () => {
               id: user.id,
               name: user.fullName || user.firstName || "Anonymous",
               email: user.primaryEmailAddress?.emailAddress || "N/A",
-              imageURL: user.imageUrl,
+              imageUrl: user.imageUrl,
               createdAt: serverTimestamp(),
-              updatedAt: serverTimestamp(),
+              updateAt: serverTimestamp(),
             };
 
             await setDoc(doc(db, "users", user.id), userData);
