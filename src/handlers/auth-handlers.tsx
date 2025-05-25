@@ -1,4 +1,4 @@
-import { db } from "@/config/firebase-config";
+import { db } from "@/config/firebase.config";
 import LoaderPage from "@/routes/loader-page";
 import type { User } from "@/types";
 import { useAuth, useUser } from "@clerk/clerk-react";
