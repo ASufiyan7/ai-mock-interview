@@ -7,7 +7,7 @@ import { db } from "../config/firebase.config";
 import type { Interview } from "@/types";
 import { useAuth } from "@clerk/clerk-react";
 import { collection, onSnapshot, query, where } from "firebase/firestore";
-import { Plus } from "lucide-react";
+import { Plus, Sparkles } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
@@ -40,7 +40,7 @@ export const Dashboard = () => {
       (error) => {
         console.log("Error on fetching : ", error);
         toast.error("Error..", {
-          description: "SOmething went wrong.. Try again later..",
+          description: "Something went wrong.. Try again later..",
         });
         setLoading(false);
       }
@@ -50,58 +50,63 @@ export const Dashboard = () => {
   }, [userId]);
 
   return (
-    <>
-      <div className="flex w-full items-center justify-between">
-        {/* headings */}
+    <div className="space-y-6">
+      {/* Header Section */}
+      <div className="flex items-center justify-between">
         <Headings
-          title="Dashboard"
-          description="Create and start you AI Mock interview"
+          title="Interview Sessions"
+          description="Create and manage your AI mock interviews"
         />
         <Link to={"/generate/create"}>
-          <Button size={"sm"}>
-            <Plus /> Add New
+          <Button className="h-10 px-6 rounded-full bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white shadow-lg transition-all">
+            <Sparkles className="w-4 h-4 mr-2" />
+            New Session
           </Button>
         </Link>
       </div>
 
-      <Separator className="my-8" />
-      {/* content section */}
+      <Separator className="bg-purple-100" />
 
-      <div className="md:grid md:grid-cols-3 gap-3 py-4">
+      {/* Content Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-4">
         {loading ? (
           Array.from({ length: 6 }).map((_, index) => (
-            <Skeleton key={index} className="h-24 md:h-32 rounded-md" />
+            <Skeleton 
+              key={index} 
+              className="h-32 rounded-xl bg-purple-50/50" 
+            />
           ))
         ) : interviews.length > 0 ? (
           interviews.map((interview) => (
-            <InterviewPin key={interview.id} interview={interview} />
+            <InterviewPin 
+              key={interview.id} 
+              interview={interview}
+            />
           ))
         ) : (
-          <div className="md:col-span-3 w-full flex flex-grow items-center justify-center h-96 flex-col">
+          <div className="col-span-full flex flex-col items-center justify-center space-y-6 py-16">
             <img
               src="/assets/svg/not-found.svg"
-              className="w-44 h-44 object-contain"
-              alt=""
+              className="w-48 h-48 object-contain opacity-75"
+              alt="No interviews found"
             />
-
-            <h2 className="text-lg font-semibold text-muted-foreground">
-              No Data Found
-            </h2>
-
-            <p className="w-full md:w-96 text-center text-sm text-neutral-400 mt-4">
-              There is no available data to show. Please add some new mock
-              interviews
-            </p>
-
-            <Link to={"/generate/create"} className="mt-4">
-              <Button size={"sm"}>
-                <Plus className="min-w-5 min-h-5 mr-1" />
-                Add New
+            <div className="space-y-2 text-center">
+              <h2 className="text-xl font-semibold text-purple-900">
+                No Sessions Found
+              </h2>
+              <p className="text-purple-600 max-w-md mx-auto">
+                Start your journey by creating a new mock interview session
+              </p>
+            </div>
+            <Link to={"/generate/create"}>
+              <Button className="rounded-full bg-purple-600 hover:bg-purple-700 text-white px-8">
+                <Plus className="w-4 h-4 mr-2" />
+                Create Session
               </Button>
             </Link>
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 };

@@ -1,161 +1,165 @@
-import { Sparkles, ArrowRight } from "lucide-react"; // Added ArrowRight for a more dynamic button
+import { Sparkles, ArrowRight, Zap, BarChart, Users } from "lucide-react";
 import Marquee from "react-fast-marquee";
-import { motion } from "framer-motion"; // For subtle animations
-
-import { Container } from "@/components/container";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { MarqueImg } from "@/components/marquee-img";
 import { Link } from "react-router-dom";
+import { MarqueImg } from "@/components/marquee-img";
 
 const HomePage = () => {
-  const textVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-  };
-
-  const imageVariants = {
-    hidden: { opacity: 0, scale: 0.95 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.8, ease: "easeOut", delay: 0.3 } },
-  };
-
-  const statsVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, staggerChildren: 0.2, delay: 0.6 } },
-  };
-
-  const statItemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-  };
 
   return (
-    <div className="flex flex-col w-full pb-24 overflow-hidden bg-gradient-to-br from-white to-blue-50">
-      <Container className="py-12 md:py-20">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={textVariants}
-          className="my-8 text-center md:text-left"
-        >
-          <h2 className="text-4xl leading-tight font-extrabold text-gray-900 md:text-7xl lg:text-8xl">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
-              AI Superpower
-            </span>
-            <span className="block mt-2 text-gray-600 md:inline">
-              <span className="hidden md:inline"> - </span>A smarter way to
-            </span>
-            <br />
-            <span className="text-gray-800">
-              dominate your interviews and master new skills
-            </span>
-          </h2>
-
-          <p className="mt-6 text-lg text-gray-600 max-w-3xl mx-auto md:mx-0">
-            Unleash your full potential. Our cutting-edge AI-driven platform offers personalized insights and dynamic practice sessions to elevate your interview performance and career trajectory. Prepare to impress, adapt, and succeed.
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={statsVariants}
-          className="flex flex-col md:flex-row w-full items-center justify-center md:justify-end gap-8 my-12 md:my-16"
-        >
-          <motion.p variants={statItemVariants} className="text-4xl font-extrabold text-gray-900 text-center">
-            250k+
-            <span className="block text-xl text-blue-600 font-medium mt-1">
-              Offers Secured
-            </span>
-          </motion.p>
-          <motion.p variants={statItemVariants} className="text-4xl font-extrabold text-gray-900 text-center">
-            1.2M+
-            <span className="block text-xl text-purple-600 font-medium mt-1">
-              Interviews Aced
-            </span>
-          </motion.p>
-        </motion.div>
-
-        {/* Dynamic image section with overlay */}
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={imageVariants}
-          className="w-full mt-8 rounded-2xl bg-gradient-to-r from-blue-100 to-purple-100 h-[450px] md:h-[550px] shadow-2xl overflow-hidden relative group"
-        >
+    <div className="min-h-screen w-full overflow-hidden bg-gradient-to-br from-purple-50 to-purple-100">
+      {/* Hero Section */}
+      <div className="relative h-screen w-full">
+        <div className="absolute inset-0">
           <img
-            src="/assets/img/hero.jpg" // Ensure this path is correct
-            alt="AI Interview Preparation"
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            src="/assets/img/bg.jpg"
+            alt="AI Interview Background"
+            className="w-full h-full object-cover object-center"
           />
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-600/40 to-purple-400/30" />
+        </div>
 
-          <div className="absolute top-6 left-6 px-5 py-2 rounded-full bg-white/70 backdrop-blur-md text-sm font-semibold text-gray-800 shadow-lg transform translate-y-0 opacity-100 transition duration-500 group-hover:translate-y-[-10px] group-hover:opacity-0">
-            Interviews Copilot&copy;
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
+        <div className="relative h-full flex items-center z-10 px-4">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.6 }}
-            className="hidden md:block absolute w-96 bottom-6 right-6 px-6 py-4 rounded-xl bg-white/80 backdrop-blur-xl shadow-2xl border border-gray-100 transform translate-y-0 opacity-100 transition duration-500 group-hover:translate-y-[-10px] group-hover:opacity-0"
+            className="max-w-4xl text-white space-y-8"
           >
-            <h3 className="text-xl font-bold text-neutral-900 mb-2">Your Personal AI Interview Coach</h3>
-            <p className="text-base text-neutral-600 leading-relaxed">
-              Experience mock interviews tailored to your target role. Receive instant, data-driven feedback on your communication, confidence, and knowledge, all powered by advanced AI.
+            <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+              <span className="bg-gradient-to-r from-purple-200 to-pink-200 bg-clip-text text-transparent">
+                AI-Powered Interview
+              </span>
+              <br />
+              <span className="text-4xl md:text-6xl font-semibold text-purple-50">
+                Mastery Platform
+              </span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-purple-100 max-w-2xl">
+              Transform your interview skills with AI-driven analysis, personalized feedback, and dynamic practice scenarios.
             </p>
 
-            <Link to={"/generate"}>
-              <Button className="mt-5 px-6 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition duration-300 shadow-lg flex items-center">
-                Start Your AI Mock <Sparkles className="ml-2 h-5 w-5" />
+            <div className="flex gap-6 mt-12">
+              <motion.div whileHover={{ scale: 1.05 }} className="flex gap-6">
+                <div className="p-6 bg-white/10 backdrop-blur-sm rounded-xl">
+                  <p className="text-3xl font-bold text-purple-50">250K+</p>
+                  <p className="text-purple-200 flex items-center gap-2">
+                    <Users className="w-5 h-5" /> Offers Secured
+                  </p>
+                </div>
+                <div className="p-6 bg-white/10 backdrop-blur-sm rounded-xl">
+                  <p className="text-3xl font-bold text-purple-50">1.2M+</p>
+                  <p className="text-purple-200 flex items-center gap-2">
+                    <BarChart className="w-5 h-5" /> Interviews Aced
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+
+            <Link to="/generate">
+              <Button className="h-16 px-12 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-2xl font-bold space-x-4 shadow-xl">
+                <Zap className="w-7 h-7" />
+                <span>Start Free Trial</span>
               </Button>
             </Link>
           </motion.div>
-        </motion.div>
-      </Container>
+        </div>
+      </div>
 
-      {/* Marquee section for partners/logos */}
-      <div className="w-full my-16 py-8 bg-gray-100 border-y border-gray-200">
-        <h3 className="text-center text-2xl font-semibold text-gray-700 mb-8">Trusted by aspiring professionals globally</h3>
-        <Marquee pauseOnHover gradient gradientColor="rgb(243, 244, 246)" gradientWidth={100}>
+      {/* AI Coach Section */}
+      <div className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-16 items-center bg-gradient-to-r from-purple-50 to-pink-50 rounded-3xl p-12 shadow-inner">
+            <motion.div 
+              whileHover={{ scale: 1.02 }}
+              className="relative rounded-2xl overflow-hidden"
+            >
+              <img
+                src="/assets/img/hero.jpg"
+                alt="AI Coach Interface"
+                className="w-full h-[500px] object-cover"
+              />
+              <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm p-4 rounded-xl shadow-lg flex items-center gap-4">
+                <div className="w-14 h-14 rounded-full bg-purple-100 flex items-center justify-center">
+                  <Sparkles className="w-7 h-7 text-purple-600" />
+                </div>
+                <div>
+                  <p className="font-bold text-purple-900">AI Interview Coach</p>
+                  <p className="text-sm text-purple-600">Available 24/7</p>
+                </div>
+              </div>
+            </motion.div>
+
+            <div className="space-y-8">
+              <h2 className="text-4xl font-bold text-purple-900">
+                Personalized AI Interview Preparation
+              </h2>
+              <p className="text-xl text-purple-700 leading-relaxed">
+                Experience smart mock interviews tailored to your target role. Get instant feedback on communication 
+                skills, confidence levels, and technical knowledge powered by advanced AI analysis.
+              </p>
+              <Link to="/demo">
+                <Button className="h-14 px-8 rounded-full bg-purple-600 hover:bg-purple-700 text-lg font-bold text-white shadow-lg">
+                  Try Live Demo <ArrowRight className="ml-3 w-6 h-6" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* marquee section */}
+      <div className=" w-full my-12">
+        <Marquee >
           <MarqueImg img="/assets/img/logo/firebase.png" />
           <MarqueImg img="/assets/img/logo/meet.png" />
           <MarqueImg img="/assets/img/logo/zoom.png" />
-          <MarqueImg img="/assets/img/logo/microsoft.png" />
-          <MarqueImg img="/assets/img/logo/tailwindcss.png" />
           <MarqueImg img="/assets/img/logo/firebase.png" />
-          <MarqueImg img="/assets/img/logo/meet.png" />
-          <MarqueImg img="/assets/img/logo/zoom.png" />
           <MarqueImg img="/assets/img/logo/microsoft.png" />
+          <MarqueImg img="/assets/img/logo/meet.png" />
           <MarqueImg img="/assets/img/logo/tailwindcss.png" />
+          <MarqueImg img="/assets/img/logo/microsoft.png" />
         </Marquee>
       </div>
 
-      <Container className="py-12 md:py-16 space-y-12">
-        <h2 className="text-center tracking-tight text-3xl md:text-5xl font-extrabold text-gray-900 max-w-4xl mx-auto leading-snug">
-          Elevate Your Interview Game with Intelligent, Adaptive Practice.
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
-          <div className="col-span-1 md:col-span-3">
-            <img
-              src="/assets/img/office.jpg" 
-              alt="Professional Interview Setting"
-              className="w-full max-h-[500px] rounded-xl object-cover shadow-xl border border-gray-200"
-            />
-          </div>
-
-          <div className="col-span-1 md:col-span-2 flex flex-col items-center justify-center text-center p-6 bg-white rounded-xl shadow-lg border border-gray-100">
-            <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              Revolutionize your preparation process. Our platform adapts to your unique learning style, providing targeted feedback and dynamic scenarios that simulate real-world interviews. Gain the confidence to shine.
-            </p>
-
-            <Link to={"/generate"} className="w-full max-w-xs">
-              <Button className="w-full px-8 py-4 rounded-full text-lg font-bold bg-gradient-to-r from-green-500 to-teal-600 hover:from-green-600 hover:to-teal-700 transition duration-300 shadow-xl flex items-center justify-center">
-                Unlock Your Potential <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
+      {/* Elevate Section */}
+      <div className="py-24 bg-gradient-to-br from-purple-100 to-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div className="space-y-8">
+              <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
+                Intelligent Practice Environment
+              </h2>
+              <p className="text-xl text-purple-700 leading-relaxed">
+                Revolutionize your preparation with adaptive scenarios that mirror real-world interviews. 
+                Our platform learns your unique style to provide targeted improvements and confidence-building exercises.
+              </p>
+              <div className="flex gap-4">
+                <Link to="/features">
+                  <Button className="h-14 px-8 rounded-full bg-purple-600 hover:bg-purple-700 text-lg font-bold text-white shadow-lg">
+                    Explore Features
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            
+            <motion.div 
+              whileHover={{ scale: 1.02 }}
+              className="relative rounded-3xl overflow-hidden shadow-2xl border border-purple-100"
+            >
+              <img
+                src="/assets/img/office.jpg"
+                alt="AI Analytics Dashboard"
+                className="w-full h-[500px] object-cover"
+              />
+              <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-sm p-3 rounded-lg shadow-md">
+                <p className="text-sm font-semibold text-purple-600">Live Progress Tracking</p>
+              </div>
+            </motion.div>
           </div>
         </div>
-      </Container>
+      </div>
     </div>
   );
 };

@@ -5,7 +5,6 @@ export const MainRoutes = [
   },
   { href: "/dashboard", label: "Dashboard" },
   
-  { href: "/generate", label: "Generate Interview" },
   {
     label: "Contact Us",
     href: "/contact",

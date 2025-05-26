@@ -1,12 +1,15 @@
-import React from 'react'
-import { Link } from 'react-router'
+import { Link } from "react-router";
 
 const LogoContainer = () => {
   return (
-    <Link to={"/"}>  
-    <img src="/assets/svg/logo.svg" alt="" className='min-w-10 min-h-10 object-contain'/>
+    <Link to="/">
+      <img
+        src="/assets/svg/logo.svg"
+        alt="Logo"
+        className="w-11 h-11 object-contain"
+      />
     </Link>
-  )
-}
+  );
+};
 
-export default LogoContainer
+export default LogoContainer;
