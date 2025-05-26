@@ -23,7 +23,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { cn } from "@/lib/utils";
-import { CircleCheck, Star } from "lucide-react";
+import { Award, CircleCheck, Pencil, Star } from "lucide-react";
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
 
 export const Feedback = () => {
@@ -164,7 +164,7 @@ export const Feedback = () => {
 
                 <Card className="border-none space-y-3 p-4 bg-green-50 rounded-lg shadow-md">
                   <CardTitle className="flex items-center text-lg">
-                    <CircleCheck className="mr-2 text-green-600" />
+                    <Award className="mr-2 text-green-600" />
                     Expected Answer
                   </CardTitle>
 
@@ -175,7 +175,7 @@ export const Feedback = () => {
 
                 <Card className="border-none space-y-3 p-4 bg-yellow-50 rounded-lg shadow-md">
                   <CardTitle className="flex items-center text-lg">
-                    <CircleCheck className="mr-2 text-yellow-600" />
+                    <Pencil className="mr-2 text-yellow-600" />
                     Your Answer
                   </CardTitle>
 
