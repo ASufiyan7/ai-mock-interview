@@ -26,16 +26,3 @@ This is a modern frontend application built with Vite and React, using Firebase 
 ![Clerk](https://img.shields.io/badge/Clerk-6C47FF?style=for-the-badge&logo=clerk&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
 ![Shadcn/UI](https://img.shields.io/badge/shadcn/ui-000000?style=for-the-badge&logo=shadcnui&logoColor=white)
-
----
-
-## 🔧 Getting Started
-
-To get this project running locally, follow these steps.
-
-### Prerequisites
-
-* Node.js (v18 or later)
-* A Google Firebase project (for Firestore).
-* An account with [Clerk](https://clerk.com/) for authentication.
-* A Google AI API key for the Gemini model.
